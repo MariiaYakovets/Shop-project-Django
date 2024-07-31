@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block style%}
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+{%endblock%}
+{%block content%}
+    <div class="container">
+    <div class="categories">
+        <!-- перебераем все объекты класса "категория" -->
+        {%for category in categories%}
+        <!-- Выводим через jinja имя каждого перебераемого обьекта -->
+        <!-- <h1>{{category.name}}</h1> -->
+         <div class="category">            
+            <!-- по названию полученной выше категории(текст) добавляем ссылку для перехода на category/category_name 
+            где category_name = category.name, то есть названию получченой выше категории-->
+            <a href="{% url 'category' category.name %}">{{category.name}}</a>  
+            <img src="{%static 'img/'%}{{category.pk}}.png" alt="">
+  
+         </div>
+        
+        {%endfor%}
+    </div>        
+    </div>
+{%endblock%}
