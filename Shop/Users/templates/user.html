@@ -5,7 +5,9 @@
 {%endblock%}
 {%block content%}
 <div class="menu_profile">
-    <h1 class="user_hi">Hello, {{username}}</h1>
+    <div class="title">
+        <h1 class="user_hi">Hello, {{username}}</h1>    
+    </div>
     <ul>
         <li><a class="menu_button" href="{% url 'logout' %}">Logout</a></li>
         <li><a class="menu_button" href="{% url 'change-password' %}">Change password</a></li>

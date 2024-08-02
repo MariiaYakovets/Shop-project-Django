@@ -1,24 +1,18 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
+.container{
+    width: 100%;
+    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
 }
-
-/* Form container styling */
 .form {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 100%;
-    max-width: 1500px; /* Increased max-width for larger form */
-    box-sizing: border-box; /* Include padding and border in width */
+    width: 500px;
+    height: 450px;
 }
 
 .form label {

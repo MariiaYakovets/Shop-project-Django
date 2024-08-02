@@ -1,6 +1,6 @@
-username = document.querySelector('#username')
-password = document.querySelector('#password')
-regForm = document.querySelector('.form')
+username = document.querySelector('#username');
+password = document.querySelector('#password');
+regForm = document.querySelector('.form');
 const csrftoken = document.querySelector("[name=csrfmiddlewaretoken]").value;
 
 

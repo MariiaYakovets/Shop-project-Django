@@ -15,7 +15,9 @@
             <a class="link" href="{% url 'product' product.pk %}">See full</a>
         </div>
         {% endfor %}
-  
+        {%if user.is_authenticated and user.is_superuser%}
+        <a href="{% url 'create-product' %}">Create a new product</a>
+        {% endif %}
     </div> 
 </div>
  

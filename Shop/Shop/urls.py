@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Products.views import show_products, show_product
+from Products.views import show_products, show_product, create_product
 from Categories.views import show_categories, show_products_from_category
 from django.conf import settings
 from django.conf.urls.static import static
@@ -33,5 +33,6 @@ urlpatterns = [
     path('user/register/', register_user, name='registration'),
     path('user/logout', loguot_user, name='logout'),
     path('user/change-password', change_password, name='change-password'),
+    path('products/create-product/', create_product, name= 'create-product')
 ]+ static(settings.STATIC_URL)
 

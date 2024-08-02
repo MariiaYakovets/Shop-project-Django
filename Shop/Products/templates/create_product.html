@@ -1,0 +1,33 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="{%static 'js/create_product.js'%}" defer></script>
+
+</head>
+<body>
+    <h1>Create a product</h1>
+    <form class="form">
+        {% csrf_token %}
+        <label for="name">Name</label>
+        <input type="text" id="name"><br>
+        <label for="price">Price</label>
+        <input type="text" id="price"><br>
+        <label for="description">Description</label>
+        <input type="text" id="description"><br>
+        <label for="image">Image</label>
+        <input type="text" id="image"><br>
+        <label for="category">Category</label>
+        <select id="category">
+            {% for category in categories%}
+            <option value="{{category.name}}">{{category.name}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Create</button>
+    </form>
+
+</body>
+</html>
