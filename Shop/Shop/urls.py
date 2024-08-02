@@ -20,12 +20,18 @@ from Products.views import show_products, show_product
 from Categories.views import show_categories, show_products_from_category
 from django.conf import settings
 from django.conf.urls.static import static
+from Users.views import show_user, login_user,change_password, register_user, loguot_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('categories/', show_categories),
-    path('products/', show_products),
+    path('categories/', show_categories, name= 'categories'),
+    path('products/', show_products, name= ' products'),
     path('category/<str:category_name>', show_products_from_category, name = 'category'),
-    path('product/<int:product_pk>', show_product, name = 'product' )
+    path('product/<int:product_pk>', show_product, name = 'product' ),
+    path('user/', show_user, name= 'user'),
+    path('user/login/', login_user, name='login'),
+    path('user/register/', register_user, name='registration'),
+    path('user/logout', loguot_user, name='logout'),
+    path('user/change-password', change_password, name='change-password'),
 ]+ static(settings.STATIC_URL)
 

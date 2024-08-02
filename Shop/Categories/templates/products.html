@@ -1,21 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{%extends 'base.html'%}
+{%load static%}
+{%block style%}
+    <link rel="stylesheet" href="{%static 'css/products.css'%}">
+{%endblock%}
+{%block content%}
+<div class="container">
+    <h1 class="title">Products</h1>
     <div class="products">
-    <h1>Products</h1>
-    {% for product in products %}
-    <h1>{{product.name}}</h1>
-    <h2>{{product.price}}</h2>
-    <p>{{product.description}}</p>
-    <img src="{{product.image}}" alt="">  
-    <a href="{% url 'product' product.pk %}">See full</a>      
-    </div>
+        {% for product in products %}
+        <div class="product">
+            <h1>{{product.name}}</h1>
+            <img src="{{product.image}}" alt="">
+            <p>Price: £{{product.price}}</p>
+            <a class="link" href="{% url 'product' product.pk %}">See full</a>
+        </div>
+        {% endfor %}
   
-    {% endfor %}
-</body>
-</html>
+    </div> 
+</div>
+ 
+  
+    
+{%endblock%}

@@ -9,8 +9,7 @@ body{
     width: 100vw;
     height: 100vh;
     background-color: #EBEACD;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 header{
@@ -55,3 +54,5 @@ header nav{
   .menu a:hover {
     background-color: #575757;
   }
+
+  
