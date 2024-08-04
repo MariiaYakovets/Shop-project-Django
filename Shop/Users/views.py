@@ -67,3 +67,6 @@ def register_user(request: Request):
             return redirect('/user')
     elif request.method == 'GET':
         return render(request=request, template_name= 'register.html')
+    
+def show_main_page(request):
+    return render(request=request, template_name= 'main_page.html')

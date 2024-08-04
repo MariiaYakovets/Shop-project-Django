@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block style%}
+    <link rel="stylesheet" href="{%static 'css/main_page.css'%}">
+{%endblock%}
+{%block content%}
+<div class="main_page">
+    <ul>
+        <li><a class="button" href="{% url 'login' %}">Login</a></li>
+        <li><a class="button" href="{% url 'registration' %}">Register</a></li>
+        <li><a class="button" href="{% url 'categories' %}">See categories</a></li>
+    </ul>
+</div>
+{%endblock%}

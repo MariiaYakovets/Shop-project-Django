@@ -16,7 +16,7 @@
         </div>
         {% endfor %}
         {%if user.is_authenticated and user.is_superuser%}
-        <a href="{% url 'create-product' %}">Create a new product</a>
+        <a class="create-button" href="{% url 'create-product' %}">Create a new product</a>
         {% endif %}
     </div> 
 </div>
