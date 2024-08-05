@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{%extends 'base.html'%}
+{%load static%}
+{%block style%}
+    <link rel="stylesheet" href="{%static 'css/product_page.css'%}">
+{%endblock%}
+{%block content%}
     <div class="product">
-    <h1>{{product.name}}</h1>
-    <h2>{{product.price}}</h2>
-    <p>{{product.description}}</p>
-    <img src="{{product.image}}" alt="">        
+        <h1>{{product.name}}</h1>
+        <h2>Price: £{{product.price}}</h2>
+        <p>{{product.description}}</p>
+        <img src="{{product.image}}" alt="">        
     </div>
-    
-</body>
-</html>
+{%endblock%}

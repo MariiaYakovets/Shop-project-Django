@@ -1,6 +1,6 @@
 .container{
     width: 100%;
-    height: 90vh;
+    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +12,8 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 500px;
-    height: 450px;
+    height: 220px;
+    margin-top: 60px;
 }
 
 .form label {
@@ -21,37 +22,44 @@
     margin-bottom: 8px;
 }
 
-.form input[type="text"],
-.form input[type="email"],
-.form input[type="password"] {
-    width: 100%; /* Ensure input fields take full width */
-    padding: 12px; /* Adjust padding for larger input fields */
+.form input[type="file"]{
+    width: 100%; 
+    padding: 12px; 
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1em;
     margin-bottom: 16px;
-    box-sizing: border-box; /* Include padding and border in width */
+    box-sizing: border-box; 
 }
 
 .form button {
     background-color: #4b6cb7;
     color: white;
-    padding: 12px; /* Larger padding for a bigger button */
+    padding: 12px; 
     border: none;
     border-radius: 5px;
     font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s;
     width: 100%;
+    margin-top: 20px;
 }
 
 .form button:hover {
     background-color: #3a5a8a;
 }
 
-/* Accessibility improvements */
 .form input:focus {
     border-color: #4b6cb7;
     outline: none;
     box-shadow: 0 0 5px rgba(75, 108, 183, 0.5);
 }
+
+/* .title h1{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+} */

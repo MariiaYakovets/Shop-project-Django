@@ -58,6 +58,10 @@
 .product h1 {
 	text-align: center;
 	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-width: 100%;
 }
 
 .product h2 {

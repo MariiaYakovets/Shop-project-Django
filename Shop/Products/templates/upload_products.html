@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block style%}
+    <link rel="stylesheet" href="{%static 'css/upload_products.css'%}">
+    <script src="{%static 'js/upload_products.js'%}" defer></script>
+{%endblock%}
+{%block content%}
+
+<div class="container">
+    <form class="form">
+        {% csrf_token %}
+        <label for="file">Upload you excel table</label>
+        <input type="file" id="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{%endblock%}
