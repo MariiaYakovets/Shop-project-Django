@@ -21,7 +21,7 @@ from Categories.views import show_categories, show_products_from_category
 from django.conf import settings
 from django.conf.urls.static import static
 from Users.views import show_user, login_user,change_password, register_user, loguot_user, show_main_page
-
+from Cart.views import view_cart, add_to_cart, remove_from_cart
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', show_main_page, name= 'main'),
@@ -35,6 +35,10 @@ urlpatterns = [
     path('user/logout', loguot_user, name='logout'),
     path('user/change-password', change_password, name='change-password'),
     path('products/create-product/', create_product, name= 'create-product'),
-    path('product/upload-products', upload_products, name= 'upload-products')
+    path('product/upload-products', upload_products, name= 'upload-products'),
+    path('products/cart/', view_cart, name= 'view-cart'),
+    path('products/cart/<int:product_id>', add_to_cart, name= 'add-to-cart'),
+    path('products/cart/remove/<int:item_id>', remove_from_cart, name= 'remove-from-cart')
+
 ]+ static(settings.STATIC_URL)
 

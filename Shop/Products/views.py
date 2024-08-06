@@ -8,6 +8,8 @@ from django.core.files.base import ContentFile
 import pandas
 from spire.xls import *
 from spire.xls.common import *
+from django.conf import settings
+from django.core.mail import send_mail
 
 # Create your views here.
 def show_products(request):
@@ -20,6 +22,16 @@ def show_product(request, product_pk):
     product = products.filter(id = product_pk)
     print(product)
     context = {'product': product.first()}
+    subject = 'Buying this product'
+    message = f'Hi {request.user.username}, thank you for buying at our store. Your item is : {product.first()}'
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = [request.user.email, ]
+    send_mail( subject, message, email_from, recipient_list )
+    send_mail("Subject here", 
+            f'User {request.user.username} bought {product.first()} ',
+            "buisnessproject88@gmail.com",
+            ["buisnessproject88@gmail.com"],
+            fail_silently=False,)
     return render( request= request, template_name= 'product_page.html', context= context)
 
 def create_product(request):
@@ -98,3 +110,4 @@ def upload_products(request):
           
     elif request.method == 'GET':
         return render(request=request, template_name= 'upload_products.html')
+    

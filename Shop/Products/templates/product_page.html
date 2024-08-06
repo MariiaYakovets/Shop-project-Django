@@ -8,6 +8,9 @@
         <h1>{{product.name}}</h1>
         <h2>Price: £{{product.price}}</h2>
         <p>{{product.description}}</p>
-        <img src="{{product.image}}" alt="">        
+        <img src="{{product.image}}" alt="">    
+        <a href="#" class="buy-now-button">Buy Now</a>
+        <a class="buy-now-button" href="{% url 'add-to-cart' product.id %}">Add to Cart</a>
+
     </div>
 {%endblock%}

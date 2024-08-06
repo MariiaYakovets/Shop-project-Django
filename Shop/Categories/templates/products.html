@@ -13,6 +13,7 @@
             <img src="{{product.image}}" alt="">
             <p>Price: £{{product.price}}</p>
             <a class="link" href="{% url 'product' product.pk %}">See full</a>
+            <a class="link" href="{% url 'product' product.pk %}">Buy now</a>
         </div>
         {% endfor %}
         {%if user.is_authenticated and user.is_superuser%}

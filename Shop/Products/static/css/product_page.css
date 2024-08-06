@@ -12,3 +12,15 @@
     margin: 10px;
     border-radius: 10px;
 }
+.buy-now-button {
+    display: block;
+    margin-top: 10px;
+    background-color: #4b6cb7;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.buy-now-button:hover {
+    background-color: #3a5a8a;
+}
