@@ -1,9 +1,9 @@
 const name = document.querySelector('#name');
-price = document.querySelector('#price');
-description = document.querySelector('#description');
-image = document.querySelector('#image');
-categorySelect= document.querySelector('#category')
-productForm = document.querySelector('.form');
+const price = document.querySelector('#price');
+const description = document.querySelector('#description');
+const image = document.querySelector('#image');
+const categorySelect= document.querySelector('#category')
+const productForm = document.querySelector('.form');
 const csrftoken = document.querySelector("[name=csrfmiddlewaretoken]").value;
 
 

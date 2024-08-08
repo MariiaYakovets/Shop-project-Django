@@ -39,6 +39,5 @@ urlpatterns = [
     path('products/cart/', view_cart, name= 'view-cart'),
     path('products/cart/<int:product_id>', add_to_cart, name= 'add-to-cart'),
     path('products/cart/remove/<int:item_id>', remove_from_cart, name= 'remove-from-cart')
-
 ]+ static(settings.STATIC_URL)
 

@@ -2,14 +2,17 @@
 {%load static%}
 {%block style%}
     <link rel="stylesheet" href="{%static 'css/product_page.css'%}">
+    <script src="{%static 'js/buy.js'%}" defer></script>
+
 {%endblock%}
 {%block content%}
     <div class="product">
+        {%csrf_token%}
         <h1>{{product.name}}</h1>
         <h2>Price: £{{product.price}}</h2>
         <p>{{product.description}}</p>
         <img src="{{product.image}}" alt="">    
-        <a href="#" class="buy-now-button">Buy Now</a>
+        <a href="#" class="buy-now-button" id = 'b-button' data-id="{{product.id}}">Buy Now</a>
         <a class="buy-now-button" href="{% url 'add-to-cart' product.id %}">Add to Cart</a>
 
     </div>

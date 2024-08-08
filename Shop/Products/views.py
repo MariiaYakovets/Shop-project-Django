@@ -9,7 +9,7 @@ import pandas
 from spire.xls import *
 from spire.xls.common import *
 from django.conf import settings
-from django.core.mail import send_mail
+from django.core.mail import send_mail,mail_admins
 
 # Create your views here.
 def show_products(request):
@@ -18,21 +18,25 @@ def show_products(request):
     return render(request= request, template_name= 'products.html', context=context)
 
 def show_product(request, product_pk):
-    products = Product.objects.all()
-    product = products.filter(id = product_pk)
-    print(product)
-    context = {'product': product.first()}
-    subject = 'Buying this product'
-    message = f'Hi {request.user.username}, thank you for buying at our store. Your item is : {product.first()}'
-    email_from = settings.EMAIL_HOST_USER
-    recipient_list = [request.user.email, ]
-    send_mail( subject, message, email_from, recipient_list )
-    send_mail("Subject here", 
-            f'User {request.user.username} bought {product.first()} ',
-            "buisnessproject88@gmail.com",
-            ["buisnessproject88@gmail.com"],
-            fail_silently=False,)
-    return render( request= request, template_name= 'product_page.html', context= context)
+    if request.method == 'POST':
+        byte_data = request.body
+        data = json.loads(byte_data.decode("utf-8"))        
+        bought_product = Product.objects.filter(pk = data['id'])
+        product= bought_product.first() 
+        send_mail(subject='Buying this product', 
+                  message=f'Hi {request.user.username}, thank you for buying at our store. \nYour item is : {product.name}\n£{product.price}\n{product.image}', 
+                  from_email=settings.EMAIL_HOST_USER, 
+                  recipient_list=[request.user.email, ])
+        mail_admins(subject="Product bought", 
+                    message=f'User {request.user.username} bought {data} ', 
+                    fail_silently=False)
+        return HttpResponse(status=200, reason="Emailed successfully")
+        
+    elif request.method == 'GET':
+        products = Product.objects.all()
+        product = products.filter(id = product_pk)
+        context = {'product': product.first()}
+        return render( request= request, template_name= 'product_page.html', context= context)
 
 def create_product(request):
     if request.user.is_authenticated:
